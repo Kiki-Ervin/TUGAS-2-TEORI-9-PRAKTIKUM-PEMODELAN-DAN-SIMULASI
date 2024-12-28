@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Monte Carlo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-text">
+            <h1>Simulasi Prediksi</h1>
+            <h1>Pengunjung Perpustakaan Keliling Kota Bandung</h1>
+        </div>
+    </header>
+    
+    <div class="button-container">
+        <button class="btn" onclick="loadContent('home')">Home</button>
+        <button class="btn" onclick="loadContent('monte_carlo')">Monte Carlo</button>
+        <button class="btn" onclick="loadContent('data_pusling')">Data Pusling</button>
+        <button class="btn" onclick="loadContent('about_me')">About Me</button>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Area untuk memuat konten -->
+    <div id="content-area">
+        <h2>Welcome</h2>
+    <p>Selamat datang di simulasi prediksi pengunjung perpustakaan keliling Kota Bandung.</p>
+    <h3>Pengenalan Monte Carlo</h3>
+    <p style="font-size: 18px; text-align: justify;">
+        Metode Monte Carlo Simulasi Monte Carlo adalah teknik matematika yang memprediksi kemungkinan hasil dari peristiwa yang tidak pasti. Program komputer menggunakan metode ini untuk menganalisis data masa lalu dan memprediksi berbagai hasil masa depan berdasarkan pilihan tindakan. 
+        Metode ini melibatkan simulasi sejumlah besar eksperimen acak untuk memperkirakan nilai suatu variabel. </p>
+    <p style="font-size: 18px; text-align: justify;"> Dalam konteks simulasi prediksi pengunjung perpustakaan keliling, Monte Carlo digunakan untuk memodelkan berbagai kemungkinan jumlah pengunjung 
+        dengan memperhitungkan faktor-faktor acak, seperti waktu kunjungan, cuaca, dan faktor lainnya yang mempengaruhi pola kunjungan. Dengan melakukan simulasi berulang-ulang menggunakan Monte Carlo, kita dapat menghasilkan distribusi kemungkinan yang memberikan gambaran 
+        lebih baik tentang berapa banyak pengunjung yang dapat datang di masa depan.
+    </p>
+   
+    </div>
+
+    <script>
+        // Fungsi untuk memuat konten secara dinamis
+        function loadContent(page) {
+            fetch(`/${page}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content-area').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('content-area').innerHTML = '<p>Terjadi kesalahan saat memuat konten.</p>';
+                });
+        }
+    </script>
+</body>
+</html>

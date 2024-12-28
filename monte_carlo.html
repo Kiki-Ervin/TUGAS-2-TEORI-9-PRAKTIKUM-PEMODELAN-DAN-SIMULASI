@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Carlo Simulation</title>
+    <style>
+        h2, h3 {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 90%;
+            font-size: 12px;
+            margin-top: 20px;
+            margin-left: 0; /* Posisi tabel di kiri */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+    <h2>Monte Carlo Simulation</h2>
+
+    <!-- Tabel Interval Probabilitas -->
+    <h3>Tabel Interval Probabilitas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Tahun</th>
+                <th>Total Pengunjung</th>
+                <th>Probabilitas</th>
+                <th>Kumulatif</th>
+                <th>Interval Probabilitas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data_probabilitas %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Tabel Hasil Prediksi -->
+    <h3>Tabel Hasil Prediksi</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Zi</th>
+                <th>(aZi + C)</th>
+                <th>(aZi + C) mod m</th>
+                <th>Angka Tiga Digit</th>
+                <th>Prediksi Pengunjung</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in hasil_prediksi %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="4">Jumlah Pendaftar di Tahun Berikutnya</td>
+                <td>{{ total_prediction }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

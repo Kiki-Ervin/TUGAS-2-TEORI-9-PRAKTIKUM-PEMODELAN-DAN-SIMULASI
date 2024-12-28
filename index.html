@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pusling</title>
+    <style>
+        h2 {
+            text-align: left; /* Pusatkan teks */
+            margin-bottom: 15px; /* Kurangi jarak bawah */
+        }
+
+        table {
+            width: 100%; /* Atur lebar tabel */
+            font-size: 12px; /* Perkecil ukuran teks */
+            margin-top: 0; /* Hilangkan jarak atas tabel */
+            margin-left: auto; /* Buat tabel berada di tengah */
+            margin-right: auto;
+            border-collapse: collapse; /* Gabungkan garis perbatasan */
+            float: left;
+        }
+
+        th, td {
+            padding: 5px; /* Kurangi ruang di dalam sel */
+            text-align: left; /* Rata kiri teks di dalam tabel */
+        }
+
+        th {
+            background-color: #f4f4f4; /* Tambahkan warna latar untuk header tabel */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Warna latar alternatif untuk baris genap */
+        }
+    </style>
+</head>
+<body>
+    <h2>Data Perpustakaan Keliling</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Kode Provinsi</th>
+            <th>Nama Provinsi</th>
+            <th>Kode Kabupaten Kota</th>
+            <th>Nama Kabupaten Kota</th>
+            <th>Bulan</th>
+            <th>Kategori Pusling</th>
+            <th>Kategori Pengunjung</th>
+            <th>Jumlah Pengunjung</th>
+            <th>Satuan</th>
+            <th>Tahun</th>
+        </tr>
+        {% for row in data_pusling %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>{{ row[8] }}</td>
+            <td>{{ row[9] }}</td>
+            <td>{{ row[10] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

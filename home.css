@@ -1,0 +1,42 @@
+/* Gaya untuk header */
+.header {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.header-text h1 {
+    margin: 5px;
+}
+
+/* Gaya untuk tombol */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.btn:hover {
+    background-color: #32adbd;
+}
+
+/* Garis pembatas */
+.divider {
+    border: 1px solid #4CAF50;
+    margin: 20px auto;
+    width: 100%;
+}
